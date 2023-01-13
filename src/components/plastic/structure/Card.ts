@@ -13,7 +13,7 @@ export const Card = styled.div(
     border,
     ...rest
   }: Partial<SizeProps & { shadowColor: string }> &
-    Pick<CSSProperties, "border"> &
+    Pick<CSSProperties, "border" | "backgroundColor"> &
     SpacingProps) => ({
     width: width || "100%",
     height: height || "100%",
