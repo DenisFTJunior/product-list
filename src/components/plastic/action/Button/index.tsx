@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes } from "react";
-
 import { StyledButton, StyleProps } from "./StyledButton";
 
 export type ButtonProps = { label?: string; icon: JSX.Element } & Partial<
