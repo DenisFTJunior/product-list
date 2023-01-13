@@ -1,3 +1,4 @@
+import  { ButtonHTMLAttributes } from "react";
 import { Button } from "../../plastic/action/Button";
 
 type IconButtonProps = {
@@ -5,7 +6,7 @@ type IconButtonProps = {
   hasBorder?: boolean;
   size?: "small" | "medium" | "large" | "xLarge";
   borderColor?: string;
-};
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style">;
 
 const IconButtonSize = {
   small: "1rem",
