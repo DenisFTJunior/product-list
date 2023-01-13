@@ -1,4 +1,8 @@
-import { BLUE } from "../../../toolbox/constants/colors";
+import {
+  ALMOST_BLACK,
+  ALMOST_WHITE,
+  BLUE,
+} from "../../../toolbox/constants/colors";
 import { Flex } from "../../plastic/layout/Flex";
 import { Card } from "../../plastic/structure/Card";
 import { Typography } from "../../plastic/structure/Typography";
@@ -18,11 +22,18 @@ export const Modal = ({ children, isOpen, title, onClose }: ModalProps) => {
     <>
       {isOpen && (
         <PortalElement>
-          <Card border={`1px solid ${BLUE}`} padding="50px">
+          <Card
+            border={`1px solid ${BLUE}`}
+            padding="50px"
+            backgroundColor={ALMOST_WHITE}
+          >
             <Flex flexDirection="column" gap="20px">
               <Flex justifyContent="space-between">
                 <Typography element="h4" text={title} />
-                <IconButton Icon={() => <MdClose />} onClick={onClose} />
+                <IconButton
+                  Icon={() => <MdClose color={ALMOST_BLACK} />}
+                  onClick={onClose}
+                />
               </Flex>
               {children}
             </Flex>
