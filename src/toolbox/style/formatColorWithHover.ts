@@ -1,4 +1,4 @@
-import { ColorWithHoverProps } from "../../types/color";
+import { ColorWithHoverProps } from "./types/color";
 
 export const formatColorWithHover = (
   colors: ColorWithHoverProps,
