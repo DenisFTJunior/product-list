@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
-import { Card } from "../../plastic/structure/Card";
 
 type ModalProps = { children: React.ReactNode };
 
