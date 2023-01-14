@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { FlexChildProps, FlexContainerProps } from "../../../types/flex";
+import { FlexChildProps, FlexContainerProps } from "../../../toolbox/style/types/flex";
 
 export const Flex = styled.div(
   ({
@@ -9,11 +9,13 @@ export const Flex = styled.div(
     justifyContent,
     inlineFlex,
   }: Partial<FlexContainerProps>) => ({
+    width: "100%",
+    height: "100%",
     display: inlineFlex ? "inline-flex" : "flex",
     alignContent: alignContent || "center",
     flexDirection: flexDirection || "row",
     justifyContent: justifyContent || "center",
-    gap,
+    gap: gap || "10px",
   })
 );
 
