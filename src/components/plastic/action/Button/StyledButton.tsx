@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { resetSpacingStyles } from "../../../../toolbox/style/resetSpacingStyles";
 import { CSSProperties } from "react";
-import { ColorWithHoverProps } from "../../../../types/color";
-import { SpacingProps } from "../../../../types/spacing";
+import { ColorWithHoverProps } from "../../../../toolbox/style/types/color";
+import { SpacingProps } from "../../../../toolbox/style/types/spacing";
 
 export type StyleProps = Pick<
   CSSProperties,
@@ -29,6 +29,7 @@ export const StyledButton = styled.button(
     ...resetSpacingStyles,
     width: width || "min-content",
     padding: padding || "0.5rem 1rem",
+    textAlign: "center",
     margin,
     backgroundColor,
     borderColor,
