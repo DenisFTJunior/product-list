@@ -1,15 +1,32 @@
 import styled from "@emotion/styled";
 import { resetSpacingStyles } from "../../../../toolbox/style/resetSpacingStyles";
-import { ColorWithHoverProps } from "../../../../types/color";
-import { SpacingProps } from "../../../../types/spacing";
-import { SizeProps } from "../../../../types/size";
+import { ColorWithHoverProps } from "../../../../toolbox/style/types/color";
+import { SpacingProps } from "../../../../toolbox/style/types/spacing";
+import { SizeProps } from "../../../../toolbox/style/types/size";
+import { appendStyle } from "../../../../toolbox/helpers/appendStyle";
 
 export type StyleProps = Partial<
   ColorWithHoverProps & SpacingProps & SizeProps
 >;
 
 export const Link = styled.a(
-  ({ color, hoverColors, height, width, padding, ...rest }: StyleProps) => ({
+  ({
+    hoverColors,
+    height,
+    width,
+    padding,
+    backgroundColor,
+    color,
+    borderColor,
+    margin,
+    maxHeight,
+    maxWidth,
+    minHeight,
+    minWidth,
+  }: StyleProps) => ({
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
     ...resetSpacingStyles,
     width: width || "min-content",
     height: height || "min-content",
@@ -18,6 +35,15 @@ export const Link = styled.a(
     "&:hover": {
       ...hoverColors,
     },
-    ...rest,
+    backgroundColor: backgroundColor || "transparent",
+    ...appendStyle({
+      color,
+      borderColor,
+      margin,
+      maxHeight,
+      maxWidth,
+      minHeight,
+      minWidth,
+    }),
   })
 );

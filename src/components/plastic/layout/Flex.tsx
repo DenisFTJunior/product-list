@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
-import { FlexChildProps, FlexContainerProps } from "../../../toolbox/style/types/flex";
+import { appendStyle } from "../../../toolbox/helpers/appendStyle";
+import {
+  FlexChildProps,
+  FlexContainerProps,
+} from "../../../toolbox/style/types/flex";
 
 export const Flex = styled.div(
   ({
@@ -20,8 +24,21 @@ export const Flex = styled.div(
 );
 
 export const FlexItem = styled.div(
-  ({ flex, ...rest }: Partial<FlexChildProps>) => ({
-    flex: "1",
-    ...rest,
+  ({
+    flex,
+    alignSelf,
+    flexBasis,
+    flexGrow,
+    flexShrink,
+    order,
+  }: Partial<FlexChildProps>) => ({
+    flex: flex || "1",
+    ...appendStyle({
+      alignSelf,
+      flexBasis,
+      flexGrow,
+      flexShrink,
+      order,
+    }),
   })
 );

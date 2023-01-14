@@ -6,7 +6,7 @@ import {
 import { Flex } from "../../plastic/layout/Flex";
 import { Card } from "../../plastic/structure/Card";
 import { Typography } from "../../plastic/structure/Typography";
-import { IconButton } from "../actions/IconButton";
+import { IconButton } from "../../plastic/action/IconButton";
 import { PortalElement } from "./PortalElement";
 import { MdClose } from "react-icons/md";
 
@@ -17,6 +17,7 @@ type ModalProps = {
   onClose: () => void;
 };
 
+//TODO: Create background overlay
 export const Modal = ({ children, isOpen, title, onClose }: ModalProps) => {
   return (
     <>
@@ -25,7 +26,7 @@ export const Modal = ({ children, isOpen, title, onClose }: ModalProps) => {
           <Card
             border={`1px solid ${BLUE}`}
             padding="50px"
-            backgroundColor={ALMOST_WHITE}
+            background={ALMOST_WHITE}
           >
             <Flex flexDirection="column" gap="20px">
               <Flex justifyContent="space-between">
