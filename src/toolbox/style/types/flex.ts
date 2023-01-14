@@ -2,7 +2,7 @@ import { CSSProperties } from "react";
 
 export type FlexContainerProps = { inlineFlex?: boolean } & Pick<
   CSSProperties,
-  "justifyContent" | "alignContent" | "gap" | "flexDirection"
+  "justifyContent" | "alignItems" | "gap" | "flexDirection"
 >;
 
 export type FlexChildProps = Pick<

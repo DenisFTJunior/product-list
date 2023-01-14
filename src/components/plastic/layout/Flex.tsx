@@ -7,7 +7,7 @@ import {
 
 export const Flex = styled.div(
   ({
-    alignContent,
+    alignItems,
     flexDirection,
     gap,
     justifyContent,
@@ -16,7 +16,7 @@ export const Flex = styled.div(
     width: "100%",
     height: "100%",
     display: inlineFlex ? "inline-flex" : "flex",
-    alignContent: alignContent || "center",
+    alignItems: alignItems || "center",
     flexDirection: flexDirection || "row",
     justifyContent: justifyContent || "center",
     gap: gap || "10px",
