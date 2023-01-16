@@ -1,6 +1,4 @@
-import { MdOutlineAdd } from "react-icons/md";
-import { ALMOST_WHITE, BLUE } from "../../../toolbox/constants/colors";
-import { Dropdown } from "../../base/structure/Dropdown";
+import { BLUE } from "../../../toolbox/constants/colors";
 import { Flex, FlexItem } from "../../plastic/layout/Flex";
 import { Position } from "../../plastic/layout/Position";
 import { Card } from "../../plastic/structure/Card";
