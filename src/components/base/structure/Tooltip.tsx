@@ -19,7 +19,7 @@ export const Tooltip = ({
   position = "right",
   width,
   forceSpace,
-  externalOpen = false,
+  externalOpen,
 }: TooltipProps) => {
   const [open, setOpen] = React.useState(externalOpen);
   const childrenRef = useRef<HTMLDivElement>(null);
@@ -49,7 +49,7 @@ export const Tooltip = ({
       {externalOpen === undefined
         ? React.cloneElement(children, {
             onMouseEnter: () => setOpen(true),
-            onMouseOut: () => setOpen(false),
+            onMouseLeave: () => setOpen(false),
             ref: childrenRef,
           })
         : children}
