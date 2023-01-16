@@ -3,13 +3,16 @@ import { resetSpacingStyles } from "../../../../toolbox/style/resetSpacingStyles
 import { CSSProperties } from "react";
 import { ColorWithHoverProps } from "../../../../toolbox/style/types/color";
 import { SpacingProps } from "../../../../toolbox/style/types/spacing";
+import { SizeProps } from "../../../../toolbox/style/types/size";
+import { appendStyle } from "../../../../toolbox/helpers/appendStyle";
 
 export type StyleProps = Pick<
   CSSProperties,
   "borderRadius" | "width" | "height" | "border"
 > &
   ColorWithHoverProps &
-  SpacingProps;
+  SpacingProps &
+  SizeProps;
 export const StyledButton = styled.button(
   ({
     backgroundColor,
@@ -21,6 +24,11 @@ export const StyledButton = styled.button(
     margin,
     padding,
     width,
+    border,
+    maxHeight,
+    maxWidth,
+    minHeight,
+    minWidth,
   }: StyleProps) => ({
     display: "inline-flex",
     flexDirection: "row",
@@ -30,12 +38,22 @@ export const StyledButton = styled.button(
     width: width || "min-content",
     padding: padding || "0.5rem 1rem",
     textAlign: "center",
-    margin,
-    backgroundColor,
-    borderColor,
-    borderRadius,
-    color,
-    height,
+    transition: "all 0.2s ease-in-out",
+
+    ...appendStyle({
+      border,
+      maxHeight,
+      maxWidth,
+      minHeight,
+      minWidth,
+      margin,
+      backgroundColor,
+      borderColor,
+      borderRadius,
+      color,
+      height,
+    }),
+
     "&:hover": {
       ...hoverColors,
     },
