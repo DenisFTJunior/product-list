@@ -18,14 +18,16 @@ export const Card = styled.div(
     minHeight,
     minWidth,
     padding,
+    borderRadius
   }: Partial<SizeProps & { shadowColor: string }> &
-    Pick<CSSProperties, "border" | "background"> &
+    Pick<CSSProperties, "border" | "background" |'borderRadius'> &
     SpacingProps) => ({
     width: width || "100%",
     height: height || "100%",
     boxShadow: `0px 4px 4px ${shadowColor || GREEN}25`,
     border: border || "none",
     ...appendStyle({
+      borderRadius,
       background,
       margin,
       maxHeight,
