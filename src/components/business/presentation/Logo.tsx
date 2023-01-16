@@ -8,5 +8,6 @@ export const Logo = ({ whiteLogo }: { whiteLogo?: boolean }) => (
     fontWeight={900}
     fontSize="2rem"
     color={whiteLogo ? ALMOST_WHITE : undefined}
+    textAlign="start"
   />
 );
