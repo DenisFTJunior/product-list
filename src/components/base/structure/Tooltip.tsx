@@ -4,11 +4,13 @@ import { Position } from "../../plastic/layout/Position";
 import { Card } from "../../plastic/structure/Card";
 import { Typography } from "../../plastic/structure/Typography";
 
-type TooltipProps = {
+export type TooltipProps = {
   children: React.ReactElement;
   position?: "left" | "right" | "top" | "bottom";
-  title: string;
+  title: React.ReactNode;
   width?: string;
+  forceSpace?: string;
+  externalOpen?: boolean;
 };
 
 export const Tooltip = ({
@@ -16,22 +18,26 @@ export const Tooltip = ({
   title,
   position = "right",
   width,
+  forceSpace,
+  externalOpen = false,
 }: TooltipProps) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(externalOpen);
   const childrenRef = useRef<HTMLDivElement>(null);
   const isX = position === "left" || position === "right";
   const formattedPosition = isX
     ? {
         top: `-${(childrenRef.current?.offsetHeight || 1) / 4}px`,
-        [position === "left"
-          ? "right"
-          : "left"]: `calc(${childrenRef.current?.offsetWidth}px + 20px)`,
+        [position === "left" ? "right" : "left"]:
+          forceSpace || `calc(${childrenRef.current?.offsetWidth}px + 20px)`,
       }
     : {
-        [position === "bottom"
-          ? "top"
-          : "bottom"]: `calc(${childrenRef.current?.offsetHeight}px + 20px)`,
+        [position === "bottom" ? "top" : "bottom"]:
+          forceSpace || `calc(${childrenRef.current?.offsetHeight}px + 20px)`,
       };
+
+  React.useEffect(() => {
+    setOpen(externalOpen);
+  }, [externalOpen]);
 
   return (
     <Position
@@ -40,11 +46,14 @@ export const Tooltip = ({
       height="max-content"
       zIndex={100}
     >
-      {React.cloneElement(children, {
-        onMouseEnter: () => setOpen(true),
-        onMouseOut: () => setOpen(false),
-        ref: childrenRef,
-      })}
+      {externalOpen === undefined
+        ? React.cloneElement(children, {
+            onMouseEnter: () => setOpen(true),
+            onMouseOut: () => setOpen(false),
+            ref: childrenRef,
+          })
+        : children}
+
       {open && (
         <Position
           position="absolute"
@@ -58,7 +67,11 @@ export const Tooltip = ({
             width="max-content"
             borderRadius="5px"
           >
-            <Typography element="span" text={title} color={ALMOST_WHITE} />
+            {typeof title === "string" ? (
+              <Typography element="span" text={title} color={ALMOST_WHITE} />
+            ) : (
+              title
+            )}
           </Card>
         </Position>
       )}
