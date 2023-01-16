@@ -1,4 +1,4 @@
-import React, { Children, useRef } from "react";
+import React, { useRef } from "react";
 import { ALMOST_WHITE, GREEN } from "../../../toolbox/constants/colors";
 import { Position } from "../../plastic/layout/Position";
 import { Card } from "../../plastic/structure/Card";
@@ -38,6 +38,7 @@ export const Tooltip = ({
       position="relative"
       width={width || "max-content"}
       height="max-content"
+      zIndex={100}
     >
       {React.cloneElement(children, {
         onMouseEnter: () => setOpen(true),
@@ -56,7 +57,7 @@ export const Tooltip = ({
             height="min-content"
             width="max-content"
           >
-            <Typography element="span" text={title} />
+            <Typography element="span" text={title} color={ALMOST_WHITE}/>
           </Card>
         </Position>
       )}
