@@ -35,6 +35,10 @@ export const Dropdown = ({
           <Card
             width={"min-content"}
             background="white"
+            onBlur={(e) => {
+              e.preventDefault();
+              setOpen(false);
+            }}
             onMouseLeave={(e) => {
               e.preventDefault();
               setOpen(false);
