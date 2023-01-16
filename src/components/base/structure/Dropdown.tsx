@@ -1,37 +1,49 @@
 import React from "react";
 import { Position } from "../../plastic/layout/Position";
 import { Card } from "../../plastic/structure/Card";
+import { Tooltip, TooltipProps } from "./Tooltip";
 
 type DropdownProps = {
   actionElement: React.ReactElement;
   actionType?: "onClick" | "onHover";
   content: React.ReactElement;
+  tooltip?: Pick<TooltipProps, "position" | "forceSpace" | "title">;
 };
 
+// TODO: Create delayed hover
 export const Dropdown = ({
   actionElement,
   actionType = "onHover",
   content,
+  tooltip,
 }: DropdownProps) => {
   const [open, setOpen] = React.useState(false);
-  const dropdownRef = React.useRef<HTMLDivElement>(null);
   const actionTrigger = actionType === "onHover" ? "onMouseEnter" : actionType;
-
-  React.useEffect(() => {
-    open && dropdownRef.current?.focus();
-  }, [open]);
 
   return (
     <Position position="relative">
-      {React.cloneElement(actionElement, {
-        [actionTrigger]: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-          setOpen(true);
-          e.stopPropagation();
-        },
-      })}
+      <Tooltip
+        title={tooltip?.title}
+        position={tooltip?.position}
+        forceSpace={tooltip?.forceSpace}
+        externalOpen={open}
+      >
+        {React.cloneElement(actionElement, {
+          [actionTrigger]: (
+            e: React.MouseEvent<HTMLDivElement, MouseEvent>
+          ) => {
+            setOpen(true);
+            e.stopPropagation();
+          },
+        })}
+      </Tooltip>
 
-      {open && (
-        <Position position="absolute" bottom="-30px" ref={dropdownRef}>
+      {
+        <Position
+          position="absolute"
+          bottom="-30px"
+          style={{ opacity: open ? 1 : 0, transition: "opacity .4s" }}
+        >
           <Card
             width={"min-content"}
             background="white"
@@ -48,7 +60,7 @@ export const Dropdown = ({
             {content}
           </Card>
         </Position>
-      )}
+      }
     </Position>
   );
 };
