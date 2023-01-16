@@ -56,8 +56,9 @@ export const Tooltip = ({
             padding="5px 10px"
             height="min-content"
             width="max-content"
+            borderRadius="5px"
           >
-            <Typography element="span" text={title} color={ALMOST_WHITE}/>
+            <Typography element="span" text={title} color={ALMOST_WHITE} />
           </Card>
         </Position>
       )}
