@@ -22,7 +22,6 @@ export const NavLink = ({
 
   const handleClick =
     (page: PAGES) => (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-      e.preventDefault();
       setSelected(page);
     };
 
@@ -30,7 +29,7 @@ export const NavLink = ({
     <Link
       width={"100%"}
       height={"8vh"}
-      href={`/${page}`}
+      to={`/${page}`}
       onClick={handleClick(page)}
       backgroundColor={bgStyle(page)}
     >

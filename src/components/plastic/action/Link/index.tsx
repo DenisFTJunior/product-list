@@ -4,12 +4,13 @@ import { ColorWithHoverProps } from "../../../../toolbox/style/types/color";
 import { SpacingProps } from "../../../../toolbox/style/types/spacing";
 import { SizeProps } from "../../../../toolbox/style/types/size";
 import { appendStyle } from "../../../../toolbox/helpers/appendStyle";
+import {  Link as _Link } from "react-router-dom";
 
 export type StyleProps = Partial<
   ColorWithHoverProps & SpacingProps & SizeProps
 >;
 
-export const Link = styled.a(
+export const Link = styled(_Link)(
   ({
     hoverColors,
     height,
