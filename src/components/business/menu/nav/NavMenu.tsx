@@ -12,23 +12,21 @@ export const NavMenu = () => {
   const [selected, setSelected] = useState(PAGES.DASHBOARD);
 
   return (
-    <Position position="fixed" left={0} bottom={0} width="5%" height="92vh" minWidth="70px">
-      <Card background={BLUE_GREEN}>
-        <Flex flexDirection="column" justifyContent="flex-start">
-          <NavLink
-            Icon={MdEqualizer}
-            setSelected={setSelected}
-            selected={selected}
-            page={PAGES.DASHBOARD}
-          />
-          <NavLink
-            Icon={MdDns}
-            setSelected={setSelected}
-            selected={selected}
-            page={PAGES.PRODUCTS}
-          />
-        </Flex>
-      </Card>
-    </Position>
+    <Card background={BLUE_GREEN} width="5%" height="92vh" minWidth="70px">
+      <Flex flexDirection="column" justifyContent="flex-start">
+        <NavLink
+          Icon={MdEqualizer}
+          setSelected={setSelected}
+          selected={selected}
+          page={PAGES.DASHBOARD}
+        />
+        <NavLink
+          Icon={MdDns}
+          setSelected={setSelected}
+          selected={selected}
+          page={PAGES.PRODUCTS}
+        />
+      </Flex>
+    </Card>
   );
 };
