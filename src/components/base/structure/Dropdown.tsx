@@ -38,7 +38,7 @@ export const Dropdown = ({
             e.stopPropagation();
           },
           onMouseLeave: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-            timer = window.setTimeout(() => setOpen(false), 2000);
+            timer = window.setTimeout(() => setOpen(false), 1000);
           },
         })}
       </Tooltip>
