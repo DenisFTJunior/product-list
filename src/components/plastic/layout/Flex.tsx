@@ -18,16 +18,32 @@ export const Flex = styled.div(
     inlineFlex,
     md,
     sm,
+    height,
+    maxHeight,
+    maxWidth,
+    minHeight,
+    minWidth,
+    width,
+    margin,
+    padding,
   }: Partial<FlexContainerProps> &
     Breakpoints<Partial<FlexContainerProps>>) => ({
-    width: "100%",
-    height: "100%",
+    width: width || "100%",
+    height: height || "100%",
     display: inlineFlex ? "inline-flex" : "flex",
     alignItems: alignItems || "center",
     flexDirection: flexDirection || "row",
     justifyContent: justifyContent || "center",
     gap: gap || "10px",
     ...handleBreakpoints({ md, sm }),
+    ...appendStyle({
+      maxHeight,
+      maxWidth,
+      minHeight,
+      minWidth,
+      margin,
+      padding,
+    }),
   })
 );
 
@@ -41,6 +57,14 @@ export const FlexItem = styled.div(
     order,
     md,
     sm,
+    height,
+    maxHeight,
+    maxWidth,
+    minHeight,
+    minWidth,
+    width,
+    margin,
+    padding
   }: Partial<FlexChildProps> & Breakpoints<Partial<FlexChildProps>>) => ({
     flex: flex || "1",
     ...appendStyle({
@@ -49,6 +73,14 @@ export const FlexItem = styled.div(
       flexGrow,
       flexShrink,
       order,
+      height,
+      maxHeight,
+      maxWidth,
+      minHeight,
+      minWidth,
+      width,
+      margin,
+      padding
     }),
     ...handleBreakpoints({ md, sm }),
   })
