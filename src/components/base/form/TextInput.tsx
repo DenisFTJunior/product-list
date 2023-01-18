@@ -5,13 +5,17 @@ import { Typography } from "../../plastic/structure/Typography";
 
 type TextInputProps = Pick<
   React.InputHTMLAttributes<HTMLInputElement>,
-  "placeholder" | "onChange"
+  "placeholder" | "onChange" | "value"
 > & {
+  type?: "text" | "password";
   label?: string;
 };
 
 export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
-  ({ label, placeholder = "", onChange }: TextInputProps, ref) => {
+  (
+    { label, placeholder = "", onChange, type = "text",value }: TextInputProps,
+    ref
+  ) => {
     return (
       <Flex
         flexDirection="column"
@@ -24,11 +28,12 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
           placeholder={placeholder}
           onChange={onChange}
           ref={ref}
-          type="text"
           width="100%"
           height="8vh"
           padding={".5rem 1rem"}
           sm={{ fontSize: "20px" }}
+          type={type}
+          value={value}
         />
       </Flex>
     );
