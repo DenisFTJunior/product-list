@@ -25,8 +25,9 @@ export const IconButton = ({
     <Button
       width={IconButtonSize[size]}
       height={IconButtonSize[size]}
-      backgroundColor={backgroundColor || "transparent"}
+      background={backgroundColor || "transparent"}
       border={Boolean(borderColor) ? `1px solid ${borderColor}` : undefined}
+      padding="0"
     >
       <Icon />
     </Button>

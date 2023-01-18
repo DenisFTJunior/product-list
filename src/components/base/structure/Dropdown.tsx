@@ -8,14 +8,16 @@ type DropdownProps = {
   actionType?: "onClick" | "onHover";
   content: React.ReactElement;
   tooltip?: Pick<TooltipProps, "position" | "forceSpace" | "title">;
+  delayedHidden?: number;
 };
 
-// TODO: Create delayed hover
+// TODO: Create touch support
 export const Dropdown = ({
   actionElement,
   actionType = "onHover",
   content,
   tooltip,
+  delayedHidden,
 }: DropdownProps) => {
   const [open, setOpen] = React.useState(false);
   const actionTrigger = actionType === "onHover" ? "onMouseEnter" : actionType;
@@ -38,7 +40,7 @@ export const Dropdown = ({
             e.stopPropagation();
           },
           onMouseLeave: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-            timer = window.setTimeout(() => setOpen(false), 1000);
+            timer = window.setTimeout(() => setOpen(false), delayedHidden || 700);
           },
         })}
       </Tooltip>

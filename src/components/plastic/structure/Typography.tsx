@@ -10,6 +10,7 @@ import {
 type TypographyProps = {
   element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
   text: string;
+  hoverColor?: string;
 } & Partial<
   Pick<
     CSSProperties,
@@ -25,6 +26,7 @@ export const Typography = ({
   color,
   whiteSpace,
   textAlign,
+  hoverColor,
   md,
   sm,
 }: TypographyProps & Breakpoints<Partial<TypographyProps>>) => {
@@ -35,6 +37,9 @@ export const Typography = ({
     color: color || ALMOST_BLACK,
     textAlign: textAlign || "center",
     whiteSpace: whiteSpace || "normal",
+    "&:hover": {
+      color: hoverColor || color || ALMOST_BLACK,
+    },
     ...handleBreakpoints({
       sm,
       md,

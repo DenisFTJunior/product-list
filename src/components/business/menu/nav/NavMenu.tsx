@@ -2,9 +2,9 @@ import { useState } from "react";
 import { MdDns, MdEqualizer } from "react-icons/md";
 import { BLUE_GREEN } from "../../../../toolbox/constants/colors";
 import { PAGES } from "../../../../toolbox/constants/pages";
-import { Flex } from "../../../plastic/layout/Flex";
-import { Position } from "../../../plastic/layout/Position";
+import { Flex, FlexItem } from "../../../plastic/layout/Flex";
 import { Card } from "../../../plastic/structure/Card";
+import { LogoutLink } from "../../actions/login/LogoutLink";
 import { NavLink } from "./NavLink";
 
 //useQuery params to get selected page
@@ -36,6 +36,10 @@ export const NavMenu = () => {
           selected={selected}
           page={PAGES.PRODUCTS}
         />
+        <FlexItem flex={10} />
+        <FlexItem flex={1}>
+          <LogoutLink />
+        </FlexItem>
       </Flex>
     </Card>
   );

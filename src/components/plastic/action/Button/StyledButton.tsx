@@ -15,6 +15,7 @@ export type StyleProps = Pick<
   SizeProps;
 export const StyledButton = styled.button(
   ({
+    background,
     backgroundColor,
     borderColor,
     borderRadius,
@@ -39,6 +40,7 @@ export const StyledButton = styled.button(
     padding: padding || "0.5rem 1rem",
     textAlign: "center",
     transition: "all 0.2s ease-in-out",
+    cursor: "pointer",
 
     ...appendStyle({
       border,
@@ -47,6 +49,7 @@ export const StyledButton = styled.button(
       minHeight,
       minWidth,
       margin,
+      background,
       backgroundColor,
       borderColor,
       borderRadius,
