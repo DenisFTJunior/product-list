@@ -17,7 +17,7 @@ export const SalesGraph = () => {
   return (
     <Card border={`1px solid ${BLUE}`} borderRadius="10px">
       <Flex flexDirection="column" alignItems="flex-start" padding="20px">
-        <Typography text="Produtos por Grupo" element="h3" fontSize="24px" fontWeight={500}/>
+        <Typography text="Total de Vendas" element="h3" fontSize="24px" fontWeight={500}/>
         <ResponsiveContainer width="80%" height="80%">
           <BarChart
             data={salesInMonth}
