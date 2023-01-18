@@ -38,7 +38,7 @@ export const Typography = ({
     textAlign: textAlign || "center",
     whiteSpace: whiteSpace || "normal",
     "&:hover": {
-      color: hoverColor || ALMOST_BLACK,
+      color: hoverColor || color || ALMOST_BLACK,
     },
     ...handleBreakpoints({
       sm,
