@@ -8,8 +8,8 @@ import {
 } from "../../../../toolbox/style/handleBreakpoints";
 
 type TemplateGridProps = {
-  columns: CSSProperties["gridTemplateColumns"];
-  rows: CSSProperties["gridTemplateRows"];
+  columns?: CSSProperties["gridTemplateColumns"];
+  rows?: CSSProperties["gridTemplateRows"];
   template: string[][];
 } & Pick<CSSProperties, "gridGap">;
 
@@ -30,9 +30,17 @@ export const TemplateGrid = styled.div(
     md,
   }: TemplateGridProps & Breakpoints<TemplateGridProps>) => ({
     display: "grid",
-    ...appendStyle(formatGridStyle({ columns, rows, template, gridGap })),
-
-    ...handleBreakpoints({ sm:formatGridStyle(sm), md:formatGridStyle(md) }),
+    width: "100%",
+    height: "100%",
+    ...appendStyle(
+      formatGridStyle({
+        columns: columns || "1fr",
+        rows: rows || "1fr",
+        template,
+        gridGap,
+      })
+    ),
+    ...handleBreakpoints({ sm: formatGridStyle(sm), md: formatGridStyle(md) }),
   })
 );
 
