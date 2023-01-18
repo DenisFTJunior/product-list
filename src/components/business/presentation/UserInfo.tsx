@@ -6,7 +6,12 @@ import { Typography } from "../../plastic/structure/Typography";
 export const UserInfo = ({ username = "UNKNOWN" }: { username?: string }) => {
   return (
     <Flex gap="10px">
-      <Typography text={username} element="span" color={ALMOST_WHITE} />
+      <Typography
+        text={username}
+        element="span"
+        color={ALMOST_WHITE}
+        sm={{ display: "none" }}
+      />
       <MdOutlinePerson
         style={{
           border: `1px solid ${ALMOST_WHITE}`,

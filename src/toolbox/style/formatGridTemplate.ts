@@ -1,6 +1,7 @@
 export const formatGridTemplate = (
-  template: string[][]
+  template?: string[][]
 ): string | undefined => {
+  if (template === undefined) return undefined;
   const size = template[0].length;
   return template.reduce((acc, row) => {
     if (acc === undefined) return acc;

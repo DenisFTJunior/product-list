@@ -1,6 +1,10 @@
 import styled from "@emotion/styled";
 import { appendStyle } from "../../../toolbox/helpers/appendStyle";
 import {
+  Breakpoints,
+  handleBreakpoints,
+} from "../../../toolbox/style/handleBreakpoints";
+import {
   FlexChildProps,
   FlexContainerProps,
 } from "../../../toolbox/style/types/flex";
@@ -12,7 +16,10 @@ export const Flex = styled.div(
     gap,
     justifyContent,
     inlineFlex,
-  }: Partial<FlexContainerProps>) => ({
+    md,
+    sm,
+  }: Partial<FlexContainerProps> &
+    Breakpoints<Partial<FlexContainerProps>>) => ({
     width: "100%",
     height: "100%",
     display: inlineFlex ? "inline-flex" : "flex",
@@ -20,6 +27,7 @@ export const Flex = styled.div(
     flexDirection: flexDirection || "row",
     justifyContent: justifyContent || "center",
     gap: gap || "10px",
+    ...handleBreakpoints({ md, sm }),
   })
 );
 
@@ -31,7 +39,9 @@ export const FlexItem = styled.div(
     flexGrow,
     flexShrink,
     order,
-  }: Partial<FlexChildProps>) => ({
+    md,
+    sm,
+  }: Partial<FlexChildProps> & Breakpoints<Partial<FlexChildProps>>) => ({
     flex: flex || "1",
     ...appendStyle({
       alignSelf,
@@ -40,5 +50,6 @@ export const FlexItem = styled.div(
       flexShrink,
       order,
     }),
+    ...handleBreakpoints({ md, sm }),
   })
 );

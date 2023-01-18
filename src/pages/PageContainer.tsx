@@ -14,6 +14,11 @@ export const PageContainer = ({ content }: { content: React.ReactNode }) => {
         ["header", "header"],
         ["nav", "content"],
       ]}
+      sm={{
+        columns: "1fr",
+        rows: "8vh 84vh 8vh",
+        template: [["header"], ["content"], ["nav"]],
+      }}
     >
       <TemplateGridItem gridArea="header">
         <HeaderMenu />

@@ -12,8 +12,18 @@ export const NavMenu = () => {
   const [selected, setSelected] = useState(PAGES.DASHBOARD);
 
   return (
-    <Card background={BLUE_GREEN} width="5%" height="92vh" minWidth="70px">
-      <Flex flexDirection="column" justifyContent="flex-start">
+    <Card
+      background={BLUE_GREEN}
+      width="5%"
+      height="92vh"
+      minWidth="70px"
+      sm={{ width: "100%", height: "100%" }}
+    >
+      <Flex
+        flexDirection="column"
+        justifyContent="flex-start"
+        sm={{ flexDirection: "row", justifyContent: "space-between" }}
+      >
         <NavLink
           Icon={MdEqualizer}
           setSelected={setSelected}
