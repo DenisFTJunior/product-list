@@ -5,7 +5,7 @@ import { IconButton } from "../../plastic/action/IconButton";
 export const AddButton = () => {
   return (
     <IconButton
-      Icon={() => <MdOutlineAdd color={ALMOST_WHITE} />}
+      Icon={() => <MdOutlineAdd color={ALMOST_WHITE} size="20px"/>}
       backgroundColor={GREEN}
       onClick={() => console.log("Add")}
     />
