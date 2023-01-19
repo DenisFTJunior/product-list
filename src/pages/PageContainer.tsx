@@ -4,6 +4,7 @@ import {
   TemplateGrid,
   TemplateGridItem,
 } from "../components/plastic/layout/grid/TemplateGrid";
+import { Position } from "../components/plastic/layout/Position";
 
 export const PageContainer = ({ content }: { content: React.ReactNode }) => {
   return (
@@ -24,9 +25,23 @@ export const PageContainer = ({ content }: { content: React.ReactNode }) => {
         <HeaderMenu />
       </TemplateGridItem>
       <TemplateGridItem gridArea="nav">
-        <NavMenu />
+        <Position
+          position="inherit"
+          height={"100%"}
+          sm={{
+            position: "fixed",
+            zIndex: 100,
+            bottom: 0,
+            height: "8vh",
+            width: "100%",
+          }}
+        >
+          <NavMenu />
+        </Position>
       </TemplateGridItem>
-      <TemplateGridItem gridArea="content"> {content} </TemplateGridItem>
+      <TemplateGridItem gridArea="content">
+        <div style={{ padding: "6% 4%" }}>{content}</div>
+      </TemplateGridItem>
     </TemplateGrid>
   );
 };

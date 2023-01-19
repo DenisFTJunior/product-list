@@ -10,7 +10,6 @@ export const DashboardPage = () => {
       width="100%"
       height="100%"
       alignItems="flex-start"
-      padding="6% 4%"
       flexDirection="column"
     >
       <FlexItem>
