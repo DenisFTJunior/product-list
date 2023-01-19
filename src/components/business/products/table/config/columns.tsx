@@ -1,5 +1,3 @@
-import { MdToc } from "react-icons/md";
-
 export const productColumns = [
   {
     flex: 1,
