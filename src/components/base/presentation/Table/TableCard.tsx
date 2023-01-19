@@ -32,7 +32,7 @@ export const TableCard = ({
     <Card borderRadius="10px" padding="20px" background={`${GREEN}80`}>
       <Flex flexDirection="column" alignItems="flex-start">
         <FlexItem alignSelf="flex-end">
-          <TableCardActions actions={actions} />
+          <TableCardActions actions={actions} record={data}/>
         </FlexItem>
         {sortedData.map(([key, value]) => (
           <Flex gap="20px" key={`${data.id} - ${value}`} width="max-content">

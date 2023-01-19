@@ -68,7 +68,7 @@ export const TableRow = ({
         })}
         {actions.length > 0 && !isHeader && (
           <FlexItem flex={0} key={`${data.id} - actions`}>
-            <TableRowActions actions={actions} />
+            <TableRowActions actions={actions} record={data}/>
           </FlexItem>
         )}
         {actions.length > 0 && isHeader && (
