@@ -26,6 +26,7 @@ export const Flex = styled.div(
     width,
     margin,
     padding,
+    flexWrap,
   }: Partial<FlexContainerProps> &
     Breakpoints<Partial<FlexContainerProps>>) => ({
     width: width || "100%",
@@ -43,6 +44,7 @@ export const Flex = styled.div(
       minWidth,
       margin,
       padding,
+      flexWrap,
     }),
   })
 );
@@ -64,7 +66,7 @@ export const FlexItem = styled.div(
     minWidth,
     width,
     margin,
-    padding
+    padding,
   }: Partial<FlexChildProps> & Breakpoints<Partial<FlexChildProps>>) => ({
     flex: flex || "1",
     ...appendStyle({
@@ -80,7 +82,7 @@ export const FlexItem = styled.div(
       minWidth,
       width,
       margin,
-      padding
+      padding,
     }),
     ...handleBreakpoints({ md, sm }),
   })

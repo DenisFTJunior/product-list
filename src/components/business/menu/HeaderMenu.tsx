@@ -1,11 +1,10 @@
 import { BLUE } from "../../../toolbox/constants/colors";
 import { useAppSelector } from "../../../toolbox/stores/hooks";
 import { Flex, FlexItem } from "../../plastic/layout/Flex";
-import { Position } from "../../plastic/layout/Position";
 import { Card } from "../../plastic/structure/Card";
 import { FastActions } from "../actions/FastActions";
 import { Logo } from "../presentation/Logo";
-import { QuestionAndAnswers } from "../presentation/Questions";
+import { QuestionAndAnswers } from "../actions/Questions";
 import { UserInfo } from "../presentation/UserInfo";
 
 //useQuery params to get selected page

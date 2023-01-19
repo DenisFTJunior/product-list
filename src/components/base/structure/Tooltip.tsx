@@ -23,6 +23,8 @@ export const Tooltip = ({
 }: TooltipProps) => {
   const [open, setOpen] = React.useState(externalOpen);
   const childrenRef = useRef<HTMLDivElement>(null);
+
+  if (!Boolean(title)) return children;
   const isX = position === "left" || position === "right";
   const formattedPosition = isX
     ? {

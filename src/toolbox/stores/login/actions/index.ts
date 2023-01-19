@@ -21,7 +21,6 @@ export const loginSlice = createSlice({
     },
 
     logout: (state) => {
-      console.log("logout");
       state.form = initialState.form;
       state.logged = false;
     },

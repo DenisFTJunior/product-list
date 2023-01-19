@@ -4,7 +4,7 @@ import { SpacingProps } from "./spacing";
 
 export type FlexContainerProps = { inlineFlex?: boolean } & SizeProps & SpacingProps & Pick<
   CSSProperties,
-  "justifyContent" | "alignItems" | "gap" | "flexDirection"
+  "justifyContent" | "alignItems" | "gap" | "flexDirection" | "flexWrap"
 >;
 
 export type FlexChildProps = Pick<
