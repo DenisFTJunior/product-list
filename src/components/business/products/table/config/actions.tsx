@@ -21,7 +21,6 @@ export const genProductsActions = (dispatch: AppDispatch) => [
   {
     label: "Remover",
     action: (record: Product) => {
-      console.log("record", record);
       dispatch(removeProducts({ id: record.id }));
     },
     icon: <MdRemoveCircleOutline color="red" />,

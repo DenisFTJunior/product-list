@@ -16,7 +16,6 @@ export const loginFormActions = {
   validateForm: (state: LoginState) => {
     state.form.errorMessage = "";
     state.form.hasError = false;
-    console.log("state", state.form.username, state.form.password);
     const formattedValues = formatFormValues([
       {
         name: "password",
