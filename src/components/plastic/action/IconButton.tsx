@@ -20,6 +20,7 @@ export const IconButton = ({
   borderColor,
   size = "medium",
   backgroundColor,
+  ...rest
 }: IconButtonProps) => {
   return (
     <Button
@@ -28,6 +29,7 @@ export const IconButton = ({
       background={backgroundColor || "transparent"}
       border={Boolean(borderColor) ? `1px solid ${borderColor}` : undefined}
       padding="0"
+      {...rest}
     >
       <Icon />
     </Button>
