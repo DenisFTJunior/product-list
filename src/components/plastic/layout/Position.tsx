@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 import { appendStyle } from "../../../toolbox/helpers/appendStyle";
+import {
+  Breakpoints,
+  handleBreakpoints,
+} from "../../../toolbox/style/handleBreakpoints";
 import { PositionProps } from "../../../toolbox/style/types/position";
 import { SizeProps } from "../../../toolbox/style/types/size";
 
@@ -17,7 +21,10 @@ export const Position = styled.div(
     maxWidth,
     minHeight,
     minWidth,
-  }: Partial<PositionProps & SizeProps>) => ({
+    sm,
+    md,
+  }: Partial<PositionProps & SizeProps> &
+    Breakpoints<Partial<PositionProps & SizeProps>>) => ({
     zIndex: zIndex || 0,
     position: position || "static",
     width: width || "100%",
@@ -31,6 +38,10 @@ export const Position = styled.div(
       top,
       bottom,
       left,
+    }),
+    ...handleBreakpoints({
+      sm,
+      md,
     }),
   })
 );
