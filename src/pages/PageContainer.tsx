@@ -5,6 +5,7 @@ import {
   TemplateGridItem,
 } from "../components/plastic/layout/grid/TemplateGrid";
 import { Position } from "../components/plastic/layout/Position";
+import { Box } from "../components/plastic/structure/Box";
 
 export const PageContainer = ({ content }: { content: React.ReactNode }) => {
   return (
@@ -40,7 +41,7 @@ export const PageContainer = ({ content }: { content: React.ReactNode }) => {
         </Position>
       </TemplateGridItem>
       <TemplateGridItem gridArea="content">
-        <div style={{ padding: "6% 4%" }}>{content}</div>
+        <Box padding="6% 4%" sm={{padding:"6% 4% 12vh 6%"}}>{content}</Box>
       </TemplateGridItem>
     </TemplateGrid>
   );
