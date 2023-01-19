@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MdDns, MdEqualizer } from "react-icons/md";
+import { useLocation } from "react-router-dom";
 import { BLUE_GREEN } from "../../../../toolbox/constants/colors";
 import { PAGES } from "../../../../toolbox/constants/pages";
 import { Flex, FlexItem } from "../../../plastic/layout/Flex";
@@ -9,7 +10,13 @@ import { NavLink } from "./NavLink";
 
 //useQuery params to get selected page
 export const NavMenu = () => {
-  const [selected, setSelected] = useState(PAGES.DASHBOARD);
+  const location = useLocation();
+  const getInitialLocation = () => {
+    const path = location.pathname;
+    if (path === "/products") return PAGES.PRODUCTS;
+    return PAGES.DASHBOARD;
+  };
+  const [selected, setSelected] = useState(getInitialLocation());
 
   return (
     <Card
