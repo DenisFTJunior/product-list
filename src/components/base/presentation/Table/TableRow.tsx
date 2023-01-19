@@ -1,7 +1,9 @@
+import { Actions } from ".";
 import { GREEN } from "../../../../toolbox/constants/colors";
 import { Flex, FlexItem } from "../../../plastic/layout/Flex";
 import { Card } from "../../../plastic/structure/Card";
 import { Typography } from "../../../plastic/structure/Typography";
+import { TableRowActions } from "./actions/TableRowActions";
 
 export type DataItem = {
   [key: string]: string | number;
@@ -15,17 +17,17 @@ export type Columns = {
 type TableRowProps = {
   data: DataItem;
   isHeader?: boolean;
-  isCard?: boolean;
   attributes?: string[];
   columns?: Columns[];
+  actions: Actions;
 };
 
 export const TableRow = ({
   data,
   columns,
   isHeader,
-  isCard,
   attributes,
+  actions,
 }: TableRowProps) => {
   const formattedData =
     !!attributes && attributes.length > 0 && Array.isArray(attributes)
@@ -53,7 +55,7 @@ export const TableRow = ({
           const column = columns?.filter((item) => item.dataIndex === key)[0];
           return (
             <FlexItem flex={column?.flex} key={`${data.id} - ${value}`}>
-              {!!column?.render && !isHeader && !isCard ? (
+              {!!column?.render && !isHeader ? (
                 column?.render(value, data)
               ) : (
                 <Typography
@@ -64,6 +66,16 @@ export const TableRow = ({
             </FlexItem>
           );
         })}
+        {actions.length > 0 && !isHeader && (
+          <FlexItem flex={0} key={`${data.id} - actions`}>
+            <TableRowActions actions={actions} />
+          </FlexItem>
+        )}
+        {actions.length > 0 && isHeader && (
+          <FlexItem flex={0} key={`${data.id} - actions`}>
+            <Typography text={"Actions"} element="span" />
+          </FlexItem>
+        )}
       </Flex>
     </Card>
   );
