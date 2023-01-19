@@ -7,7 +7,6 @@ export const loginSlice = createSlice({
   initialState,
   reducers: {
     removeProducts: (state, action: PayloadAction<{ id: number }>) => {
-      console.log("state.products", state.products);
       const { id } = action.payload;
       state.products = state.products.filter((p) => p.id !== id);
     },
