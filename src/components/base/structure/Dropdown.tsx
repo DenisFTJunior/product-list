@@ -50,9 +50,10 @@ export const Dropdown = ({
           position="absolute"
           bottom="-30px"
           style={{
-            opacity: open ? 1 : 0,
-            transition: "opacity .4s",
+            display: open ? 'inline-block' : 'none',
+            transition: "display .4s",
           }}
+          zIndex={200}
         >
           <Card
             className="dropdown-content"
