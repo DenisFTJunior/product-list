@@ -15,9 +15,18 @@ import { Typography } from "../../../plastic/structure/Typography";
 
 export const SalesGraph = () => {
   return (
-    <Card border={`1px solid ${BLUE}`} borderRadius="10px">
+    <Card
+      border={`1px solid ${BLUE}`}
+      borderRadius="10px"
+      sm={{ height: "50vh" }}
+    >
       <Flex flexDirection="column" alignItems="flex-start" padding="20px">
-        <Typography text="Total de Vendas" element="h3" fontSize="24px" fontWeight={500}/>
+        <Typography
+          text="Total de Vendas"
+          element="h3"
+          fontSize="24px"
+          fontWeight={500}
+        />
         <ResponsiveContainer width="80%" height="80%">
           <BarChart
             data={salesInMonth}

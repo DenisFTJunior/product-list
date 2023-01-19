@@ -7,7 +7,11 @@ import { Typography } from "../../../plastic/structure/Typography";
 
 export const ProductByGroupGraph = () => {
   return (
-    <Card border={`1px solid ${BLUE}`} borderRadius="10px">
+    <Card
+      border={`1px solid ${BLUE}`}
+      borderRadius="10px"
+      sm={{ height: "50vh" }}
+    >
       <Flex flexDirection="column" alignItems="flex-start" padding="20px">
         <Typography
           text="Produtos por Grupo"
@@ -16,7 +20,7 @@ export const ProductByGroupGraph = () => {
           fontWeight={500}
         />
 
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="80%" height="80%">
           <PieChart width={100} height={100}>
             <Pie
               dataKey="value"
